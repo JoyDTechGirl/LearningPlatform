@@ -26,3 +26,6 @@ courses.init(
     timestamps: true,
   }
 );
+
+
+module.exports = courses

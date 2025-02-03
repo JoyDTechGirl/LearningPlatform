@@ -27,3 +27,5 @@ users.init(
     timeStamps: true,
   }
 );
+
+module.exports = users

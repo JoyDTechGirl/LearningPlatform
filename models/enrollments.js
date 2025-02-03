@@ -1,42 +1,43 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
-const sequelize = require('../DB/db');
+const { Sequelize, DataTypes, Model } = require("sequelize");
+const sequelize = require("../DB/db");
 
 class enrollments extends Model {}
 
 enrollments.init(
   {
-    
-       id: {
-        allowNull: false,
-        primaryKey: true,
-        type: DataTypes.UUID
+    id: {
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.UUID,
+    },
+    userId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+      references: {
+        models: "users",
+        key: "id",
       },
-      userId: {
-        type: DataTypes.UUID,
-        allowNull:false,
-        references:{
-          models:'users',
-          key: 'id'
-        },
-        onUpdate:'CASCADE',
-        onDelete:'CASCADE',
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE",
+    },
+    courseId: {
+      type: DataTypes.UUID,
+      allowNull: false,
+      references: {
+        models: "courses",
+        key: "id",
       },
-      courseId: {
-        type: DataTypes.UUID,
-        allowNull:false,
-        references:{
-          models:'courses',
-          key:'id'
-        },
-        onUpdate:'CASCADE',
-        onDelete:'CASCADE',
-      },
+      onUpdate: "CASCADE",
+      onDelete: "CASCADE",
+    },
   },
   {
-  
     sequelize,
-    modelName: 'enrollments', 
-    tableName: 'enrollments',
-    timeStamps:true
-  },
+    modelName: "enrollments",
+    tableName: "enrollments",
+    timeStamps: true,
+  }
 );
+
+
+module.exports = enrollments
