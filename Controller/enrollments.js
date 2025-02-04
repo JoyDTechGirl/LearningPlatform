@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 
 exports.createEnrollment = async (req, res) => {
   try {
-    const { userId, courseId } = req.params;
+    const { userId, courseId } = req.body;
 
     const existingEnrollment = await enrollments.findOne({
       where: {
@@ -13,7 +13,7 @@ exports.createEnrollment = async (req, res) => {
     });
 
     if (existingEnrollment) {
-      return res.status(400).json({ message: 'User is already enrolled in this course' });
+      return res.status(400).json({ message: 'User already enrolled in this course' });
     }
     const data = {
       id: uuidv4(),
