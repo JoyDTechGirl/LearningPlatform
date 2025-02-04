@@ -14,6 +14,8 @@ exports.createUser = async (req, res) => {
       .status(201)
       .json({ message: `user created successfully`, data: newUser });
   } catch (err) {
+    console.error(err);
+    
     res
       .status(500)
       .json({ message: `Error creating User`, error: err.message });
@@ -23,13 +25,11 @@ exports.createUser = async (req, res) => {
 exports.getAllUser = async (req, res) => {
   try {
     const allUser = await users.findAll();
-    res
-      .status(200)
-      .json({
-        message: `Kindly find all user`,
-        "Total number of user": allUser.length,
-        data: allUser,
-      });
+    res.status(200).json({
+      message: `Kindly find all user`,
+      "Total number of user": allUser.length,
+      data: allUser,
+    });
   } catch (err) {
     res
       .status(500)
@@ -40,12 +40,10 @@ exports.getAllUser = async (req, res) => {
 exports.getOne = async (req, res) => {
   try {
     const oneUser = await users.findByPk(id);
-    res
-      .status(200)
-      .json({
-        message: `Kindly find the user with the above id`,
-        data: oneUser,
-      });
+    res.status(200).json({
+      message: `Kindly find the user with the above id`,
+      data: oneUser,
+    });
   } catch (err) {
     res
       .status(500)
