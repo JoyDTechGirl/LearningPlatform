@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 
 exports.createEnrollment = async (req, res) => {
   try {
-    const { userId, courseId } = req.body;
+    const { userId, courseId } = req.params;
 
     const existingEnrollment = await enrollments.findOne({
       where: {
