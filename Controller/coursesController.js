@@ -1,4 +1,4 @@
-const { courses } = require("../models");
+const courses  = require("../models/courses");
 
 const { v4: uuidv4 } = require("uuid");
 
@@ -16,14 +16,16 @@ exports.createCourse = async (req, res) => {
   } catch (err) {
     res
       .status(500)
-      .json({ message:`Internal Server Error`, error: err.message });
+      .json({ message: `Internal Server Error`, error: err.message });
   }
 };
 
 exports.getAllCourse = async (req, res) => {
   try {
     const getCourse = await courses.findAll();
-    res.status(200).json({ message: `Successfully Get All Course`, data: getCourse });
+    res
+      .status(200)
+      .json({ message: `Successfully Get All Course`, data: getCourse });
   } catch (err) {
     res
       .status(500)
@@ -38,18 +40,14 @@ exports.getOneCourse = async (req, res) => {
     if (!course) {
       return res.status(404).json("course not found");
     }
-    res
-      .status(200)
-      .json({
-        message: `Kindly get the course with the above id`,
-        data: course,
-      });
+    res.status(200).json({
+      message: `Kindly get the course with the above id`,
+      data: course,
+    });
   } catch (err) {
-    res
-      .status(500)
-      .json({
-        message: `Internal Server Error`,
-        error: err.message,
-      });
+    res.status(500).json({
+      message: `Internal Server Error`,
+      error: err.message,
+    });
   }
 };
