@@ -4,6 +4,6 @@ const router = require('express').Router()
 
 router.post('/users',createUser)
 router.get('/users',getAllUser)
-router.get('/users',getOne)
+router.get('/users/:id',getOne)
 
 module.exports = router;

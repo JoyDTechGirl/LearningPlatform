@@ -4,6 +4,6 @@ const router = require('express').Router()
 
 router.post('/courses',createCourse)
 router.get('/courses',getAllCourse)
-router.get('/courses',getOneCourse)
+router.get('/courses/:id',getOneCourse)
 
 module.exports = router;
