@@ -42,7 +42,7 @@ exports.getOneCourse = async (req, res) => {
       .status(200)
       .json({
         message: `Kindly get the course with the above id`,
-        data: getOne,
+        data: course,
       });
   } catch (err) {
     res
