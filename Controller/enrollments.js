@@ -24,6 +24,6 @@ exports.createEnrollment = async (req, res) => {
     res.status(201).json({ message: 'Enrollment Created Successfully', data: newEnrollment });
 
   } catch (err) {
-    res.status(500).json({ message: 'Error Creating Enrollment', error: err.message });
+    res.status(500).json({ message: 'Internal Server Error', error: err.message });
   }
 }

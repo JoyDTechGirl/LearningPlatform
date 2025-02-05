@@ -18,7 +18,7 @@ exports.createUser = async (req, res) => {
     
     res
       .status(500)
-      .json({ message: `Error creating User`, error: err.message });
+      .json({ message: `Internal Server Error`, error: err.message });
   }
 };
 
@@ -33,7 +33,7 @@ exports.getAllUser = async (req, res) => {
   } catch (err) {
     res
       .status(500)
-      .json({ message: `Error Fetching All User`, error: err.message });
+      .json({ message: `Internal Server Error`, error: err.message });
   }
 };
 
@@ -47,6 +47,6 @@ exports.getOne = async (req, res) => {
   } catch (err) {
     res
       .status(500)
-      .json({ message: `Error getting a user`, error: err.message });
+      .json({ message: `Internal Server Error`, error: err.message });
   }
 };

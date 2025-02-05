@@ -16,18 +16,18 @@ exports.createCourse = async (req, res) => {
   } catch (err) {
     res
       .status(500)
-      .json({ message: `Error Creating Courses`, error: err.message });
+      .json({ message:`Internal Server Error`, error: err.message });
   }
 };
 
 exports.getAllCourse = async (req, res) => {
   try {
     const getCourse = await courses.findAll();
-    res.status(200).json({ message: `Successfully`, data: getCourse });
+    res.status(200).json({ message: `Successfully Get All Course`, data: getCourse });
   } catch (err) {
     res
       .status(500)
-      .json({ message: `Error Fetching All Courses`, error: err.message });
+      .json({ message: `Internal Server Error`, error: err.message });
   }
 };
 
@@ -48,7 +48,7 @@ exports.getOneCourse = async (req, res) => {
     res
       .status(500)
       .json({
-        message: `Error Getting A Particular Course`,
+        message: `Internal Server Error`,
         error: err.message,
       });
   }
