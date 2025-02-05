@@ -34,8 +34,8 @@ exports.getAllCourse = async (req, res) => {
 exports.getOneCourse = async (req, res) => {
   try {
     const { id } = req.params;
-    const getOne = await courses.findByPk(id);
-    if (!getOne) {
+    const course = await courses.findByPk(id);
+    if (!course) {
       return res.status(404).json("course not found");
     }
     res
